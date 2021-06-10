@@ -1,10 +1,10 @@
-const yargs = require("yargs");
+
 const jsonwebtoken = require("jsonwebtoken");
 const EC = require("elliptic").ec;
 const ec = new EC("secp256k1");
 const KeyEncoder = require("key-encoder").default;
 const bs58check = require("bs58check");
-const { exit } = require("yargs");
+
 
 var myArgs = process.argv.slice(2);
 let jwtToken = null;
