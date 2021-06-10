@@ -20,7 +20,8 @@
         }
     },
     "require": {
-        "php": ">= 7.4"
+        "php": ">= 7.4",
+        "simplito/elliptic-php": "^1.0"
     },
     "config": {
         "sort-packages": true
