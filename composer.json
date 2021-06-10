@@ -1,0 +1,28 @@
+{
+    "name": "clubrooms/sign",
+    "description": "Port the signing process for Bitclout to PHP",
+    "version": "1.0.0",
+    "keywords": [
+        "bitclout"
+    ],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Clubrooms Limited",
+            "homepage": "https://clubroo.ms"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Clubrooms\\": [
+                "src"
+            ]
+        }
+    },
+    "require": {
+        "php": ">= 7.4"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
