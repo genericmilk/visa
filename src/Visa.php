@@ -18,6 +18,7 @@ class Visa
 
             // Final
             $bitCloutPublicKeyDecoded = $this->base58_decode($this->publicKey);
+            dd($bitCloutPublicKeyDecoded);
             $bitCloutPublicKeyDecodedArray = [...$bitCloutPublicKeyDecoded];
             $rawPublicKeyArray = array_slice($bitCloutPublicKeyDecodedArray,3);
             
