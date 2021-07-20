@@ -18,20 +18,12 @@ class Visa
 
             // Final
             $bitCloutPublicKeyDecoded = $this->base58_decode($this->publicKey);
-            dd($bitCloutPublicKeyDecoded);
-            $bitCloutPublicKeyDecodedArray = [...$bitCloutPublicKeyDecoded];
-            $rawPublicKeyArray = array_slice($bitCloutPublicKeyDecodedArray,3);
+
             
-            dd(
-                $bitCloutPublicKeyDecoded,
-                $bitCloutPublicKeyDecodedArray,
-                $rawPublicKeyArray,
-            );
-
-            // PHP
             $ec = new EC('secp256k1');
+            $key = $ec->keyFromPublic($bitCloutPublicKeyDecoded, 'hex');
 
-            $pub = "049a1eedae838f2f8ad94597dc4368899ecc751342b464862da80c280d841875ab4607fb6ce14100e71dd7648dd6b417c7872a6ff1ff29195dabd99f15eff023e5";
+            dd($bitCloutPublicKeyDecoded,$key);
 
             // Signature MUST be either:
             // 1) hex-string of DER-encoded signature; or
@@ -49,7 +41,6 @@ class Visa
 
 
             // Import public key
-            $key = $ec->keyFromPublic($pub, 'hex');
 
             // Verify signature
             echo "Verified: " . (($key->verify($msg, $sig) == TRUE) ? "true" : "false") . "\n";
