@@ -6,11 +6,10 @@ use stdClass;
 use Exception;
 use Elliptic\EC;
 
-
-class Sign
+class Visa
 {
 
-    protected $publicKey;
+    public $publicKey;
 
     public function __construct(){
          
