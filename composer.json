@@ -1,6 +1,6 @@
 {
-    "name": "clubrooms/sign",
-    "description": "Port the signing process for Bitclout to PHP",
+    "name": "genericmilk/visa",
+    "description": "A PHP translation of Bitclout Signing",
     "version": "1.0.0",
     "keywords": [
         "bitclout"
@@ -8,13 +8,13 @@
     "license": "Apache-2.0",
     "authors": [
         {
-            "name": "Clubrooms Limited",
-            "homepage": "https://clubroo.ms"
+            "name": "Peter Day",
+            "homepage": "https://github.com/genericmilk"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Clubrooms\\": [
+            "Genericmilk\\": [
                 "src"
             ]
         }

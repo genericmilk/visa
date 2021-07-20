@@ -1,6 +1,6 @@
 <?php
 
-namespace Clubrooms;
+namespace Genericmilk;
 
 use stdClass;
 use Exception;
@@ -10,31 +10,27 @@ use Elliptic\EC;
 class Sign
 {
 
+    protected $publicKey;
+
     public function __construct(){
          
     }
-   public function validateJwt(){
+    public function validateJwt(){
 
-            // Create and initialize EC context
-            // (better do it once and reuse it)
+            // Final
+            $bitCloutPublicKeyDecoded = base58_decode($this->publicKey);
+            $bitCloutPublicKeyDecodedArray = [...$bitCloutPublicKeyDecoded];
+            $rawPublicKeyArray = array_slice($bitCloutPublicKeyDecodedArray,3);
+            
+            dd(
+                $bitCloutPublicKeyDecoded,
+                $bitCloutPublicKeyDecodedArray,
+                $rawPublicKeyArray,
+            );
+
+            // PHP
             $ec = new EC('secp256k1');
 
-            // Generate keys
-            $key = $ec->genKeyPair();
-
-            // Sign message (can be hex sequence or array)
-            $msg = 'ab4c3451';
-            $signature = $key->sign($msg);
-
-            // Export DER encoded signature to hex string
-            $derSign = $signature->toDER('hex');
-
-            // Verify signature
-            echo "Verified: " . (($key->verify($msg, $derSign) == TRUE) ? "true" : "false") . "\n";
-
-            // CHECK WITH NO PRIVATE KEY
-
-            // Public key as '04 + x + y'
             $pub = "049a1eedae838f2f8ad94597dc4368899ecc751342b464862da80c280d841875ab4607fb6ce14100e71dd7648dd6b417c7872a6ff1ff29195dabd99f15eff023e5";
 
             // Signature MUST be either:
@@ -60,13 +56,12 @@ class Sign
 
 
 
-
-            let result = null;
-            try {
-                const bitCloutPublicKeyDecoded = bs58check.decode(bitCloutPublicKey);
-                const bitCloutPublicKeyDecodedArray = [...bitCloutPublicKeyDecoded];
-                const rawPublicKeyArray = bitCloutPublicKeyDecodedArray.slice(3);
+    
+                //const bitCloutPublicKeyDecoded = bs58check.decode(bitCloutPublicKey);
+                //const bitCloutPublicKeyDecodedArray = [...bitCloutPublicKeyDecoded];
+                //const rawPublicKeyArray = bitCloutPublicKeyDecodedArray.slice(3);
             
+            /*
                 const rawPublicKeyHex = ec
                     .keyFromPublic(rawPublicKeyArray, "hex")
                     .getPublic()
@@ -83,19 +78,7 @@ class Sign
                 });
         
                 result = "OK";
-            } catch (e) {
-                if (e instanceof Error) {
-                    result = "ERROR: Error";
-                } else if (e instanceof Error) {
-                    result = "ERROR: Error";
-                } else {
-                    result = "ERROR: Unknown";
-                }
-            }    
-            return result;
-
-
-
+                */
 
 
 
