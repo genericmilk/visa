@@ -3,6 +3,7 @@
 namespace Genericmilk;
 
 use stdClass;
+use base58_decode;
 use Exception;
 use Elliptic\EC;
 
