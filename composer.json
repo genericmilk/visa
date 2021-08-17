@@ -14,9 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Genericmilk\\": [
-                "src"
-            ]
+          "Visa\\": "src/"
         }
     },
     "require": {
