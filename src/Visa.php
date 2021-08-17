@@ -17,11 +17,13 @@ class Visa
     }
     public function validateJwt(){
 
-        // Final
-        $bitCloutPublicKeyDecoded = $this->base58_decode($this->publicKey);
+    
         $ec = new EC('secp256k1');
-        $key = $ec->keyFromPublic($bitCloutPublicKeyDecoded, 'hex');
-        return $key->verify($msg, $this->jwt);
+        $pub_hex  = $this->publicKey;
+        $priv_hex = $this->jwt;
+
+        $priv = $ec->keyFromPrivate($priv_hex);
+        return $pub_hex == $priv->getPublic(true, "hex");
 
     }
     private function base58_decode($num) {
